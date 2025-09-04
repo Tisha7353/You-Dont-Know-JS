@@ -251,12 +251,12 @@ The error message for an undeclared variable condition, in most JS environments,
 To perpetuate the confusion even further, JS's `typeof` operator returns the string `"undefined"` for variable references in either state:
 
 
-<mark> ```js
-var studentName;
+ ```js
+<mark> var studentName;
 typeof studentName;     // "undefined"
 
-typeof doesntExist;     // "undefined"
-``` </mark>
+typeof doesntExist;     // "undefined"</mark>
+``` 
 
 These two variable references are in very different conditions, but JS sure does muddy the waters. The terminology mess is confusing and terribly unfortunate. Unfortunately, JS developers just have to pay close attention to not mix up *which kind* of "undefined" they're dealing with!
 
