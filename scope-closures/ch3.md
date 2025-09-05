@@ -414,7 +414,7 @@ var askQuestion = () => {
 
 askQuestion.name;   // askQuestion
 ```
-
+<mark> Arrow functions dont have names they are anonymous that's why they are not hoisted</mark>
 Arrow functions achieve their syntactic brevity at the expense of having to mentally juggle a bunch of variations for different forms/conditions. Just a few, for example:
 
 ```js
