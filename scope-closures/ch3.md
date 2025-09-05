@@ -260,7 +260,7 @@ function another() {
 }
 ```
 
-Summary: `let` (in an inner scope) can always shadow an outer scope's `var`. `var` (in an inner scope) can only shadow an outer scope's `let` if there is a function boundary in between.
+<mark>Summary: `let` (in an inner scope) can always shadow an outer scope's `var`. `var` (in an inner scope) can only shadow an outer scope's `let` if there is a function boundary in between.</mark>
 
 ## Function Name Scope
 
