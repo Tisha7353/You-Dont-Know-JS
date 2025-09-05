@@ -419,3 +419,55 @@ The global scope is present and relevant in every JS program, even though modern
 Still, as our code proliferates more and more beyond the confines of the browser, it's especially important we have a solid grasp on the differences in how the global scope (and global scope object!) behave across different JS environments.
 
 With the big picture of global scope now sharper in focus, the next chapter again descends into the deeper details of lexical scope, examining how and when variables can be used.
+
+
+
+
+✅ Top 6 Global Scope Learnings to Remember
+1. Only var and function add to the global object
+var x = 1;
+console.log(window.x); // 1
+let y = 2;
+console.log(window.y); // undefined
+
+
+Use let/const in global scope to avoid polluting window.
+
+2. Global scope ≠ global object
+
+let, const, and class declarations are in the global lexical scope, but not on the global object.
+
+var and function declarations are in both.
+
+3. Global variable shadowing
+window.name = "WindowName";
+let name = "Shadowed";
+console.log(name);        // "Shadowed"
+console.log(window.name); // "WindowName"
+
+
+Avoid naming collisions with globals. let can shadow a global object property.
+
+4. Use globalThis for cross-platform global object access
+globalThis.myValue = 123; // Works in browser, Node, Web Workers
+
+
+This is now the standard way to refer to the global object across environments.
+
+5. In modules, top-level variables are not global
+// In an ES module
+var x = 1;
+console.log(window.x); // undefined
+
+
+ES modules have their own scope, separate from global scope.
+
+6. Node.js doesn't have a real global scope
+
+Even top-level var is scoped to the module, not truly global.
+
+To define global variables in Node, use global.varName.
+
+🧠 Remember:
+
+Avoid var in the global scope unless you explicitly want to attach something to the global object. Prefer let or const to avoid accidental collisions or shadowing.
