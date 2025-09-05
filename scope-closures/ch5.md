@@ -639,6 +639,43 @@ My advice: always put your `let` and `const` declarations at the top of any scop
 
 But why is TDZ even a thing? Why didn't TC39 dictate that `let`/`const` auto-initialize the way `var` does? Just be patient, we'll come back to explore the *why* of TDZ in Appendix A.
 
+
+
+<mark>Key takeaways about hoisting and TDZ for var, let, and const:</mark>
+1. Hoisting happens to all three (var, let, const):
+
+The JavaScript engine registers the variables at the top of their scope before running any code.
+
+2. Initialization differs:
+
+var variables are automatically initialized to undefined during hoisting, so you can access them before their declaration (though the value will be undefined).
+
+let and const variables are not initialized during hoisting. They stay uninitialized until the actual declaration line runs.
+
+3. Temporal Dead Zone (TDZ):
+
+The time between entering the scope and reaching the declaration line is called the TDZ.
+
+During TDZ, let and const variables exist but cannot be accessed (accessing them throws a ReferenceError).
+
+The TDZ makes JavaScript safer by preventing the use of variables before they are properly declared and initialized.
+
+4. Practical effects:
+
+You get errors like ReferenceError: Cannot access 'x' before initialization if you try to use a let or const variable in the TDZ.
+
+For var, you just get undefined if accessed before declaration.
+
+5. Shadowing proves hoisting for let and const:
+
+Even if an inner block redeclares a variable with let or const, it shadows the outer variable because it is registered (hoisted) at the top of the inner block scope.
+
+But since it’s uninitialized before the declaration line, accessing it before that throws a TDZ error.
+
+6. Best practice:
+
+Always declare let and const variables at the top of their scope to minimize the TDZ window and avoid errors.
+
 ## Finally Initialized
 
 Working with variables has much more nuance than it seems at first glance. *Hoisting*, *(re)declaration*, and the *TDZ* are common sources of confusion for developers, especially those who have worked in other languages before coming to JS. Before moving on, make sure your mental model is fully grounded on these aspects of JS scope and variables.
