@@ -136,7 +136,9 @@ class notThree {}
 
 console.log(window.one);       // 1
 console.log(window.notOne);    // undefined
-console.log(window.notTwo);    // undefined
+console.log(window.notTwo);    // undefined  In JavaScript, when you declare a variable in the global scope using var, it becomes a property of the window object. That’s why window.one returns 1.
+
+However, variables declared with let, const, or class at the global level don’t become properties of window. They’re scoped to the global lexical environment, not the window object. So window.notOne, window.notTwo, and window.notThree are all undefined, even though those variables exist globally.
 console.log(window.notThree);  // undefined
 ```
 
