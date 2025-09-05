@@ -264,6 +264,55 @@ function another() {
 
 ## Function Name Scope
 
+<mark>✅ Summary: Function Name Scope in JavaScript </mark>
+
+Function Declarations
+
+Syntax:
+
+function askQuestion() { ... }
+
+
+The name (askQuestion) is hoisted and available in the outer (enclosing) scope.
+
+Can be called before it's defined in the code.
+
+Function Expressions
+
+Syntax:
+
+var askQuestion = function() { ... };
+
+
+The variable askQuestion is hoisted (as undefined), but the function itself is NOT hoisted.
+
+Must be called after it's defined.
+
+Named Function Expressions (NFEs)
+
+Syntax:
+
+var askQuestion = function ofTheTeacher() { ... };
+
+
+askQuestion is in the outer scope.
+
+ofTheTeacher is only accessible inside the function itself.
+
+It's read-only (especially in strict mode).
+
+console.log(ofTheTeacher); // ❌ ReferenceError
+
+
+Anonymous Function Expressions
+
+Syntax:
+
+var askQuestion = function() { ... };
+
+
+No internal name — so nothing extra gets added to the function’s internal scope.
+
 As you've seen by now, a `function` declaration looks like this:
 
 ```js
