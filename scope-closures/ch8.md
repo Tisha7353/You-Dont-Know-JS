@@ -41,7 +41,7 @@ To get a better sense of what a module is, let's compare some module characteris
 
 ### Namespaces (Stateless Grouping)
 
-If you group a set of related functions together, without data, then you don't really have the expected encapsulation a module implies. The better term for this grouping of *stateless* functions is a namespace:
+<mark>If you group a set of related functions together, without data</mark>, then you don't really have the expected encapsulation a module implies. The better term for this grouping of *stateless* functions is a namespace:
 
 ```js
 // namespace, not module
