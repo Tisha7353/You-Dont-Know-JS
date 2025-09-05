@@ -300,6 +300,64 @@ Since `const` "re-declaration" must be disallowed (on those technical grounds), 
 
 ### Loops
 
+✅ MOST IMPORTANT THINGS TO REMEMBER
+1. Each loop iteration creates a new scope for let and const
+for (let i = 0; i < 3; i++) {
+  let value = i * 10;
+}
+
+
+i and value are re-created per loop iteration, not re-declared in the same scope.
+
+So no error even if declared with let or const.
+
+👉 Why it matters: Avoids bugs with closures or asynchronous code inside loops.
+
+2. var is function-scoped — not block-scoped
+while (true) {
+  var value = Math.random();
+  break;
+}
+
+
+All var declarations inside a loop live in the same outer scope.
+
+So you're not re-declaring on each loop — there's just one value.
+
+👉 Why it matters: Variables leak outside the loop — and can be overwritten easily.
+
+3. Using const in classic for loops causes errors
+for (const i = 0; i < 3; i++) {
+  // ❌ TypeError after 1st loop
+}
+
+
+You can’t increment a const — that’s why it breaks.
+
+Even though a new scope is created each time, JS can't reassign const.
+
+👉 Tip: Always use let for loop counters, not const.
+
+4. Using const is fine with for...in and for...of
+for (const student of students) {
+  // ✅ No problem
+}
+
+
+Each iteration has a new scope, and student is a new constant each time.
+
+No re-assignment needed.
+
+👉 Why it matters: Safe to use const here if you're not mutating the loop variable.
+
+💡 Good Rule of Thumb
+
+Use let for loop counters or things that change.
+
+Use const for loop values you don’t reassign.
+
+Avoid var unless you're in legacy code.
+
 So it's clear from our previous discussion that JS doesn't really want us to "re-declare" our variables within the same scope. That probably seems like a straightforward admonition, until you consider what it means for repeated execution of declaration statements in loops. Consider:
 
 ```js
