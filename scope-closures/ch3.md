@@ -206,7 +206,7 @@ No. Mutating the contents of the object value via a reference copy is **not** th
 
 ### Illegal Shadowing
 
-Not all combinations of declaration shadowing are allowed. `let` can shadow `var`, but `var` cannot shadow `let`:
+<mark> Not all combinations of declaration shadowing are allowed. `let` can shadow `var`, but `var` cannot shadow `let`:</mark>
 
 ```js
 function something() {
