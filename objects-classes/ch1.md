@@ -651,13 +651,13 @@ If you're paying close attention, you may have noticed that `myObj` appears to h
 
 ### Better Existence Check
 
-ES2022 (almost official at time of writing) has already settled on a new feature, `Object.hasOwn(..)`. It does essentially the same thing as `hasOwnProperty(..)`, but it's invoked as a static helper external to the object value instead of via the object's `[[Prototype]]`, making it safer and more consistent in usage:
+ES2022 (almost official at time of writing) has already settled on a new feature,<mark> `Object.hasOwn(..)`. It does essentially the same thing as `hasOwnProperty(..)`, but it's invoked as a static helper external to the object value instead of via the object's `[[Prototype]]`, making it safer and more consistent in usage:
 
 ```js
 // instead of:
 myObj.hasOwnProperty("favoriteNumber")
 
-<mark>// we should now prefer:
+// we should now prefer:
 Object.hasOwn(myObj,"favoriteNumber")
 ```
 
