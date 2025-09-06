@@ -269,7 +269,43 @@ anotherObj = {
 }
 ```
 
-The spreading of `myObj`'s properties is shallow, in that it only copies the top-level properties from `myObj`; any values those properties hold are simply assigned over. If any of those values are references to other objects, the references themselves are assigned (by copy), but the underlying object values are *not* duplicated -- so you end up with multiple shared references to the same object(s).
+The spreading of `myObj`'s properties is shallow, in that it only copies the top-level properties from `myObj`; any values those properties hold are simply assigned over. If any of those values are references to other objects, the references themselves are assigned (by copy), but the underlying object values are *not* duplicated -- so you end up with multiple shared references to the same object(s). 
+<mark>The top level properties are assigned as copy and other as references in shallow copy
+
+# Shallow Copy in JavaScript
+
+When using **object spread (`...`)** or `Object.assign`, only the top-level properties are copied by **value**.  
+Nested objects or arrays are copied by **reference**, so changes inside them affect both objects.
+
+---
+
+## <mark>Example
+
+```js
+const original = {
+  name: "Alice",
+  age: 25,
+  address: {
+    city: "Delhi",
+    pincode: 110001
+  }
+};
+
+// Shallow copy using spread
+const shallowCopy = { ...original };
+
+// Change a top-level property
+shallowCopy.name = "Bob";
+
+console.log(original.name);     // "Alice" (independent)
+console.log(shallowCopy.name);  // "Bob"
+
+// Change a nested property
+shallowCopy.address.city = "Mumbai";
+
+console.log(original.address.city);     // "Mumbai" ❌ (changed too!)
+console.log(shallowCopy.address.city);  // "Mumbai"
+
 
 You can think of object spreading like a `for` loop that runs through the properties one at a time and does an `=` style assignment from the source object (`myObj`) to the target object (`anotherObj`).
 
@@ -301,7 +337,7 @@ For deep object duplication, the standard approaches have been:
 
 2. Use the `JSON.parse(JSON.stringify(..))` round-trip trick -- this only "works" correctly if there are no circular references, and if there are no values in the object that cannot be properly serialized with JSON (such as functions).
 
-Recently, though, a third option has landed. This is not a JS feature, but rather a companion API provided to JS by environments like the web platform. Objects can be deep copied now using `structuredClone(..)`[^structuredClone].
+Recently, though, a third option has landed. This is not a JS feature, but rather a companion API provided to JS by environments like the web platform.<mark> Objects can be deep copied now using `structuredClone(..)`[^structuredClone].
 
 ```js
 myObjCopy = structuredClone(myObj);
