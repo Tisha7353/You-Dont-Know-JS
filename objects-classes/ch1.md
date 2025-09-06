@@ -108,11 +108,11 @@ You may notice that this object-literal syntax we've seen thus far resembles a r
 
 The biggest differences between JS's object literals and JSON are, for objects defined as JSON:
 
-1. property names must be quoted with `"` double-quote characters
+1.<mark> property names must be quoted with `"` double-quote characters
 
-2. property values must be literals (either primitives, objects, or arrays), not arbitrary JS expressions
+2. <mark>property values must be literals (either primitives, objects, or arrays), not arbitrary JS expressions
 
-In JS programs, an object literal does not require quoted property names -- you *can* quote them (`'` or `"` allowed), but it's usually optional. There are however characters that are valid in a property name, but which cannot be included without surrounding quotes; for example, leading numbers or whitespace:
+<mark>In JS programs, an object literal does not require quoted property names -- you *can* quote them (`'` or `"` allowed), but it's usually optional. There are <mark>however characters that are valid in a property name, but which cannot be included without surrounding quotes; for example, leading numbers or whitespace:
 
 ```js
 myObj = {
@@ -123,7 +123,7 @@ myObj = {
 };
 ```
 
-One other minor difference is, JSON syntax -- that is, text that will be *parsed* as JSON, such as from a `.json` file -- is stricter than general JS. For example, JS allows comments (`// ..` and `/* .. */`), and trailing `,` commas in object and array expressions; JSON does not allow any of these. Thankfully, JSON does still allow arbitrary whitespace.
+One other minor difference is, JSON syntax -- that is, text that will be *parsed* as JSON, such as from a `.json` file -- is stricter than general JS. For example, <mark>JS allows comments (`// ..` and `/* .. */`), and trailing `,` commas in object and array expressions; JSON does not allow any of these. Thankfully, JSON does still allow arbitrary whitespace.
 
 ### Property Names
 
