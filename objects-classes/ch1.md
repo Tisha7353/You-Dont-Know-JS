@@ -185,7 +185,7 @@ Symbols are also useful to hook into special default behaviors of objects, and w
 
 ### Concise Properties
 
-When defining an object literal, it's common to use a property name that's the same as an existing in-scope identifier that holds the value you want to assign.
+<mark>When defining an object literal, it's common to use a property name that's the same as an existing in-scope identifier that holds the value you want to assign.
 
 ```js
 coolFact = "the first person convicted of speeding was going 8 mph";
