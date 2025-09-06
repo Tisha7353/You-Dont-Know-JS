@@ -49,11 +49,11 @@ myObj = {
 
 It's easy to get confused what pairs of `{ .. }` mean, since JS overloads the curly brackets to mean any of the following, depending on the context used:
 
-* delimit values, like object literals
+* <mark>delimit values, like object literals
 * define object destructuring patterns (more on this later)
 * delimit interpolated string expressions, like `` `some ${ getNumber() } thing` ``
 * define blocks, like on `if` and `for` loops
-* define function bodies
+* define function bodies</mark>
 
 Though it can sometimes be challenging as you read code, look for whether a `{ .. }` curly brace pair is used in the program where a value/expression is valid to appear; if so, it's an object literal, otherwise it's one of the other overloaded uses.
 
