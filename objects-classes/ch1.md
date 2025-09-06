@@ -645,7 +645,7 @@ delete myObj.nicknames;
 myObj.hasOwnProperty("nicknames");    // false
 ```
 
-There *is* an important difference between how the `in` operator and the `hasOwnProperty(..)` method behave. The `in` operator will check not only the target object specified, but if not found there, it will also consult the object's `[[Prototype]]` chain (covered in the next chapter). By contrast, `hasOwnProperty(..)` only consults the target object.
+<mark>There *is* an important difference between how the `in` operator and the `hasOwnProperty(..)` method behave. The `in` operator will check not only the target object specified, but if not found there, it will also consult the object's `[[Prototype]]` chain (covered in the next chapter). By contrast, `hasOwnProperty(..)` only consults the target object.
 
 If you're paying close attention, you may have noticed that `myObj` appears to have a method property called `hasOwnProperty(..)` on it, even though we didn't define such. That's because `hasOwnProperty(..)` is defined as a built-in on `Object.prototype`, which by default is "inherited by" all normal objects. There is risk inherent to accessing such an "inherited" method, though. Again, more on prototypes in the next chapter.
 
@@ -657,7 +657,7 @@ ES2022 (almost official at time of writing) has already settled on a new feature
 // instead of:
 myObj.hasOwnProperty("favoriteNumber")
 
-// we should now prefer:
+<mark>// we should now prefer:
 Object.hasOwn(myObj,"favoriteNumber")
 ```
 
