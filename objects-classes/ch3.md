@@ -366,7 +366,7 @@ Don't abuse/misuse `class` and turn it into a over-hyped, glorified collection o
 
 To be clear, I'm *not* saying: never use `=>` arrow functions inside classes.
 
-I *am* saying: never attach an `=>` arrow function as an instance property in place of a dynamic prototypal class method, either out of mindless habit, or laziness in typing fewer characters, or misguided `this`-binding convenience.
+<mark>I *am* saying: never attach an `=>` arrow function as an instance property in place of a dynamic prototypal class method, either out of mindless habit, or laziness in typing fewer characters, or misguided `this`-binding convenience.
 
 In a subsequent chapter, we'll dive deep into how to understand and properly leverage the full power of the dynamic `this` mechanism.
 
@@ -452,7 +452,7 @@ point.printX();       // double x: 42
 
 The `Point3d` subclass overrides the inherited `getX()` method to give it different behavior. However, you can still instantiate the base `Point2d` class, which would then give an object that uses the original (`return this.x;`) definition for `getX()`.
 
-If you want to access an inherited method from a subclass even if it's been overridden, you can use `super` instead of `this`:
+If you want to access an inherited method from a subclass even if it's been overridden,<mark> you can use `super` instead of `this`:
 
 ```js
 class Point2d {
@@ -482,11 +482,11 @@ var point = new Point3d();
 point.printX();       // x: 21
 ```
 
-The ability for methods of the same name, at different levels of the inheritance hierarchy, to exhibit different behavior when either accessed directly, or relatively with `super`, is called *method polymorphism*. It's a very powerful part of class-orientation, when used appropriately.
+<mark>The ability for methods of the same name, at different levels of the inheritance hierarchy, to exhibit different behavior when either accessed directly, or relatively with `super`, is called *method polymorphism*. It's a very powerful part of class-orientation, when used appropriately.
 
 ### That's Super!
 
-In addition to a subclass method accessing an inherited method definition (even if overriden on the subclass) via `super.` reference, a subclass constructor must manually invoke the inherited base class constructor via `super(..)` function invocation:
+<mark>In addition to a subclass method accessing an inherited method definition (even if overriden on the subclass) via `super.` reference, a subclass constructor must manually invoke the inherited base class constructor via `super(..)` function invocation:
 
 ```js
 class Point2d {
