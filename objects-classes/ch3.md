@@ -565,6 +565,13 @@ var point = new Point3d(3,4,5);
 
 <mark>Finally → Rest of subclass constructor code runs
 
+Child constructor start
+Parent field initializer
+Parent constructor
+Child field initializer
+Child constructor end
+
+
 ✅ So the rule is:
 
 <mark>Superclass field initializers run before superclass constructor body.
