@@ -555,6 +555,16 @@ var point = new Point3d(3,4,5);
 // Setting instance property 'z' to 5
 ```
 
+<mark>In a subclass with fields + constructor:
+
+<mark>First → Subclass constructor starts
+
+<mark>Then → Must call super(..)
+
+<mark>Then → Subclass field initializers run
+
+<mark>Finally → Rest of subclass constructor code runs
+
 As the console messages illustrate, the `z = ..` field initialization happens *immediately after* the `super(x,y)` call, *before* the ``console.log(`Setting instance...`)`` is executed. Perhaps think of it like the field initializations attached to the end of the `super(..)` call, so they run before anything else in the constructor does.
 
 #### Which Class?
