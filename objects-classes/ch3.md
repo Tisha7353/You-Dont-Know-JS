@@ -582,7 +582,7 @@ As the console messages illustrate, the `z = ..` field initialization happens *i
 
 #### Which Class?
 
-You may need to determine in a constructor if that class is being instantiated directly, or being instantiated from a subclass with a `super()` call. We can use a special "pseudo property" `new.target`:
+<mark>You may need to determine in a constructor if that class is being instantiated directly, or being instantiated from a subclass with a `super()` call. We can use a special "pseudo property" `new.target`:
 
 ```js
 class Point2d {
