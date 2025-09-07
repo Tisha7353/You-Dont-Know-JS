@@ -565,6 +565,12 @@ var point = new Point3d(3,4,5);
 
 <mark>Finally → Rest of subclass constructor code runs
 
+✅ So the rule is:
+
+<mark>Superclass field initializers run before superclass constructor body.
+
+<mark>Subclass field initializers run after super(..) but before subclass constructor body continues.
+
 As the console messages illustrate, the `z = ..` field initialization happens *immediately after* the `super(x,y)` call, *before* the ``console.log(`Setting instance...`)`` is executed. Perhaps think of it like the field initializations attached to the end of the `super(..)` call, so they run before anything else in the constructor does.
 
 #### Which Class?
