@@ -385,7 +385,7 @@ point.toString.call( yetAnotherPoint );
 // (5,6)
 ```
 
-### Review This
+### <mark> Review This
 
 We've seen four rules for `this` context assignment in function calls. Let's put them in order of precedence:
 
